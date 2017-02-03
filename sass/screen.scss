@@ -1,0 +1,255 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/css3";
+@import "compass/typography/vertical_rhythm";
+@import url('https://fonts.googleapis.com/css?family=Bubblegum+Sans');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500');
+
+$base-font-size: 14px;
+$base-line-height: 24px;
+@include establish-baseline;
+
+$color-blue: #008c99;
+$color-white: #fff;
+$color-gray: #ccc;
+$color-rose: #e30377;
+
+/*Media*/
+$mobile: "(max-width : 767px)";
+$tablet: "(min-width: 768px)";
+$tablet1: "(max-width: 1100px)";
+$desktop: "(min-width: 1100px)";
+
+body {
+	  @include adjust-font-size-to(14px);
+	  font-family: 'Roboto', sans-serif;
+}
+
+.domena, h1, h2, h4 {
+	  font-family: 'Bubblegum Sans', cursive;
+}
+
+h4 {
+	  @include adjust-font-size-to(20px);
+}
+
+/*Nawigacja*/
+.navbar {
+    border-radius: 0;
+  	margin-bottom: 0;  
+    position: relative;
+}  
+
+.navbar-default {
+	  background-color: $color-blue;
+    border-color: transparent;
+	  z-index: 11;
+    .navbar-nav {
+    	  li {
+    		  a {
+    			  color: $color-white;
+    		}
+    	}
+    }
+}
+
+.nav 
+	  li {
+      display: inline-block;
+     	text-align: center;
+}  
+
+.navbar-header {
+    float: none;
+}
+
+.navbar-nav {
+	padding: 0.5em 2em;
+  text-align: justify;
+	li {
+		float: none;
+	  z-index: 2;
+		a {
+		    @include adjust-font-size-to(14px);
+		    letter-spacing: 1px;
+		    padding: 0.4em;
+		  	&:focus, &:hover {
+				text-decoration: none;
+    		background-color: transparent;
+		  }
+		}
+	}
+}
+
+.navbar-collapse {
+    padding: 0px;
+}
+
+/* Logo */
+.domena {
+    z-index: 12;
+    position: relative;
+    @include adjust-font-size-to(45px);
+    text-align: center;
+  	padding-bottom: 2em;
+  	a {
+  		color: $color-rose;
+  	}
+}
+
+.wrap {
+	  background: url(../img/header.jpg),;
+    @include background-size(cover);
+    height: 560px;
+    position: relative;
+    z-index: 10;   
+    @media screen and #{$mobile} {
+        height: 150px;
+    }
+    @media screen and #{$mobile} and (orientation: landscape) {
+        height: 300px;
+    }
+    @media  screen and #{$tablet} and #{$tablet1} {
+        height: 300px;
+    }
+    @media screen and #{$tablet} and (orientation: landscape) {
+        height: 400px;
+    }     
+}
+
+.breadcrumb {
+    background-color: transparent;
+    border-radius: 0;
+    @include rhythm-padding();
+    margin-bottom: 0;
+    a {
+        color: #333;
+    }
+}
+
+/* Zawartość */
+.thumbnail {
+	padding: 0;
+	border-radius: 0;
+	@include margin-trailer();
+	border-color: $color-gray;
+  img {
+      width: 100%;
+  }
+	.caption {
+    border-top: 1px solid $color-gray;
+		h4 {
+			@include adjust-font-size-to(20px);
+			a {
+				color: #2f2f2f;
+				&:hover, &:focus {
+					color: $color-rose;
+				}
+			}
+		}
+	}
+}
+
+.pull-right {
+    position: relative;
+    top: -2.8em;
+    padding-right: 0.65em;
+    color: #5c5c5c;
+}
+
+.lastPost {
+  	padding: 3em 0;
+    border-bottom: 1px solid $color-gray;
+    &:last-child {
+  	border-bottom: none;
+   	}
+    h2 {
+    		&:first-child {
+    			margin-top: 0;
+    		}
+  	}
+    @media screen and #{$tablet1} {
+        padding: 1em 0;
+    }
+}
+
+.posty { 
+    section {
+	  &:first-child {
+		  padding-top: 0;
+	  }
+  }
+}
+
+.lead {
+	 font-size: 1.1em;
+    line-height: 1.6;;
+}
+
+h2 {
+	@include adjust-font-size-to(28px);
+	color: #5bb834;
+}
+
+.footer {
+    background: $color-blue;
+    color: $color-white;
+    padding-top: 0.5em;
+    @include adjust-font-size-to(16px); 
+}
+
+//Media
+
+@media screen and #{$tablet} and #{$tablet1}  {
+    .col-sm-4 {
+      width: 100% !important;
+  }
+}
+
+@media screen and #{$desktop} {
+  	.content h2 {
+        margin-bottom: 1em;
+    }
+}
+
+@media screen and #{$mobile} {
+  	.domena {
+      	position: absolute;
+    	  top: 0;
+      	left: 0.75em;
+        font-size: 2.5em;
+        a {
+      	    color: $color-white;
+        }
+    }
+    .navbar-toggle {
+        background-color: rgba(255,255,255,.95);
+    }
+  	.navbar-collapse {
+    	width: 100%;
+    }
+  	.nav {
+        li {
+    	      background-color: transparent;
+            display: block;
+        }
+    }
+  	.categ {
+ 	      padding: 1em 0;
+	  }
+  	.page {
+      	padding: 0;
+    }
+}
+
+@media screen and  #{$tablet} and (orientation: landscape) {
+   .page {
+      .col-lg-4 {
+    	   width: 50%;
+    	   float: left;
+      }
+	 }
+}
